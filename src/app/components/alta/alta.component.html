@@ -1,0 +1,8 @@
+<p>alta works!</p>
+<form #PersonaForm="ngForm">
+    <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="persona.name" name="name" #nameInput="ngModel">
+    <input type="text" class="form-control" placeholder="Apellido" [(ngModel)]="persona.lastName" name="lastName" #lastNameInput="ngModel">
+    <input type="number" class="form-control" placeholder="Edad" [(ngModel)]="persona.age" name="age" #ageInput="ngModel">
+    <button (click)="enviar()" >Enviar</button>
+</form>
+{{ persona | json }}
