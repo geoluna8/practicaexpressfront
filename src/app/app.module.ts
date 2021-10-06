@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { AltaComponent } from './components/alta/alta.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    AltaComponent
+    AltaComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
