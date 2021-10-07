@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: 'alta', component: AltaComponent}
 ];
 
+/*agregar forRoot(routes, {useHash: true, enableTracing: false}) para funcionamiento en server*/
 @NgModule({
   imports: [RouterModule.forRoot(routes, {useHash: true, enableTracing: false})],
   exports: [RouterModule]

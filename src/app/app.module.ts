@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +8,9 @@ import { MainComponent } from './components/main/main.component';
 import { AltaComponent } from './components/alta/alta.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MyLoaderComponent } from './components/my-loader/my-loader.component';
+import { LoaderInterceptor } from './interceptors/loader-interceptor.service';
+import { LoaderService } from './services/loader.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MainComponent,
     AltaComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    MyLoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,10 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
