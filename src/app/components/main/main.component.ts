@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PracticaService } from '../../services/practica.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,7 @@ export class MainComponent implements OnInit {
 
   public datosApi: any;
 
-  constructor( private _service: PracticaService ) { }
+  constructor( private _router: Router, private _service: PracticaService ) { }
 
   private getData(): any {
     this._service.getData().subscribe(
@@ -18,6 +19,10 @@ export class MainComponent implements OnInit {
       (err: any) => { console.log(err); },
       () => { console.log("api consultada"); }
     );
+  }
+
+  public goToUpdate(_id: string){
+    this._router.navigate(['/actualizar'], {queryParams: {id: _id}});
   }
 
   ngOnInit(): void {

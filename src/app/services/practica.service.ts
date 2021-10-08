@@ -21,4 +21,14 @@ constructor( private _http: HttpClient ){}
         return this._http.post(this.apiExpress + '/alta', persona)
     }
 
+    public getOne(id : any): any {
+        console.log(id);
+        return this._http.post(this.apiExpress + '/getone', id);
+    }
+
+    public saveOne(persona: any): any{
+        console.log(persona);
+        return this._http.put(this.apiExpress + '/actualizar', persona);
+    }
+
 }

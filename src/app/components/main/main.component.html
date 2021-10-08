@@ -7,6 +7,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
             <th scope="col">Edad</th>
+            <th scope="col">Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -15,6 +16,7 @@
             <td>{{ item.name }}</td>
             <td>{{ item.lastName }}</td>
             <td>{{ item.age }} </td>
+            <td><button class="btn btn-primary" (click)="goToUpdate(item._id)">Actualizar</button></td>
         </tr>
         </tbody>
     </table>

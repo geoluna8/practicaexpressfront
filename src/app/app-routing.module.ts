@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MainComponent } from './components/main/main.component';
 import { AltaComponent } from './components/alta/alta.component';
+import { ActualizarComponent } from './components/actualizar/actualizar.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent},
   {path: 'main', component: MainComponent},
-  {path: 'alta', component: AltaComponent}
+  {path: 'alta', component: AltaComponent},
+  {path: 'actualizar', component: ActualizarComponent}
 ];
 
 /*agregar forRoot(routes, {useHash: true, enableTracing: false}) para funcionamiento en server*/

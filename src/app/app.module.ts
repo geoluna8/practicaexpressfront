@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MyLoaderComponent } from './components/my-loader/my-loader.component';
 import { LoaderInterceptor } from './interceptors/loader-interceptor.service';
 import { LoaderService } from './services/loader.service';
+import { ActualizarComponent } from './components/actualizar/actualizar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoaderService } from './services/loader.service';
     AltaComponent,
     NavbarComponent,
     FooterComponent,
-    MyLoaderComponent
+    MyLoaderComponent,
+    ActualizarComponent
   ],
   imports: [
     BrowserModule,
