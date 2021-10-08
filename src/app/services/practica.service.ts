@@ -13,7 +13,7 @@ private apiExpress: string = environment.url;
 constructor( private _http: HttpClient ){}
 
     public getData(): any {
-        return this._http.get(this.apiExpress);
+        return this._http.get(this.apiExpress + '/consulta');
     }
 
     public setData(persona: any): any {
