@@ -10,7 +10,6 @@ import { Persona } from '../../models/persona.model';
 })
 export class ActualizarComponent implements OnInit {
 
-  public id: any = {_id: ''};
   public persona = new Persona("","",0,0);
 
   constructor( private route:ActivatedRoute, private _service: PracticaService ) { }
@@ -23,13 +22,16 @@ export class ActualizarComponent implements OnInit {
     );
   }
 
+public buscar(id: string): void{
+  this._service.getOne(id).subscribe(
+    (data: any) => {console.log(data); this.persona = data},
+    (error: any) => {},
+    () => {}
+    );
+} 
+
   ngOnInit(): void {
-    this.route.queryParamMap.subscribe((params : any) => {console.log(params.params.id); this.id._id = params.params.id; });
-    this._service.getOne(this.id).subscribe(
-      (data: any) => {console.log(data); this.persona = data},
-      (error: any) => {},
-      () => {}
-      );
+    this.route.queryParamMap.subscribe((params : any) => {console.log(params.params.id); this.buscar(params.params.id); });
   }
 
 }
