@@ -31,4 +31,9 @@ constructor( private _http: HttpClient ){}
         return this._http.put(this.apiExpress + '/actualizar', persona);
     }
 
+    public deleteOne(id: any): any {
+        console.log("borrar: ", id);
+        return this._http.delete(this.apiExpress + '/borrar/' + id , id);
+    }
+
 }
