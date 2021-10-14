@@ -13,6 +13,7 @@ import { LoaderInterceptor } from './interceptors/loader-interceptor.service';
 import { LoaderService } from './services/loader.service';
 import { ActualizarComponent } from './components/actualizar/actualizar.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     FooterComponent,
     MyLoaderComponent,
     ActualizarComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 export class MainComponent implements OnInit {
 
   public datosApi: any;
+  public searchText: any = '';
 
   constructor( private _router: Router, private _service: PracticaService ) { }
 

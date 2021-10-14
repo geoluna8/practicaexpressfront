@@ -1,24 +1,32 @@
 <!--p>main works! {{ datosApi | json }}</p-->
 <app-my-loader></app-my-loader>
-    <table class="table" *ngIf="datosApi">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Edad</th>
-            <th scope="col" colspan="2">Acciones</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let item of datosApi; let i = index">
-            <th scope="row">{{ i+1 }}</th>
-            <td>{{ item.name }}</td>
-            <td>{{ item.lastName }}</td>
-            <td>{{ item.age }} </td>
-            <td><button class="btn btn-primary" (click)="goToUpdate(item._id)">Editar</button></td>
-            <td><button class="btn btn-danger" (click)="askToDelete(item._id)">Eliminar</button></td>
-        </tr>
-        </tbody>
-    </table>
-    <h1 *ngIf="!datosApi">Ningún registro encontrado</h1>
+<div class="row">
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping"><em class="fas fa-search"></em></span>
+        <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Buscar..." aria-label="Username" aria-describedby="addon-wrapping">
+    </div>    
+</div>
+<div class="row">
+<table class="table" *ngIf="datosApi">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col" colspan="2">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of datosApi | filter: searchText; let i = index">
+        <th scope="row">{{ i+1 }}</th>
+        <td>{{ item.name }}</td>
+        <td>{{ item.lastName }}</td>
+        <td>{{ item.age }} </td>
+        <td><button class="btn btn-primary" (click)="goToUpdate(item._id)" title="Editar"><em class="fas fa-edit"></em></button></td>
+        <td><button class="btn btn-danger" (click)="askToDelete(item._id)" title="Borrar"><em class="fas fa-trash-alt"></em></button></td>
+    </tr>
+    </tbody>
+</table>
+<h1 *ngIf="!datosApi">Ningún registro encontrado</h1>
+</div>
