@@ -1,6 +1,6 @@
 <!--p>main works! {{ datosApi | json }}</p-->
 <app-my-loader></app-my-loader>
-    <table class="table">
+    <table class="table" *ngIf="datosApi">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -21,3 +21,4 @@
         </tr>
         </tbody>
     </table>
+    <h1 *ngIf="!datosApi">Ningún registro encontrado</h1>

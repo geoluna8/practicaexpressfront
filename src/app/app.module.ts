@@ -12,6 +12,7 @@ import { MyLoaderComponent } from './components/my-loader/my-loader.component';
 import { LoaderInterceptor } from './interceptors/loader-interceptor.service';
 import { LoaderService } from './services/loader.service';
 import { ActualizarComponent } from './components/actualizar/actualizar.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ActualizarComponent } from './components/actualizar/actualizar.componen
     NavbarComponent,
     FooterComponent,
     MyLoaderComponent,
-    ActualizarComponent
+    ActualizarComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
