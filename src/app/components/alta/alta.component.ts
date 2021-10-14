@@ -19,7 +19,7 @@ export class AltaComponent implements OnInit {
     this._service.setData(this.persona).subscribe(
       (data: any) => { console.log(data); },
       (err: any) => { console.log(err); },
-      () => { console.log("alta exitosa!"); this.showSWAL(); this._router.navigate(['/main']); }
+      () => { console.log("alta exitosa!"); this.showSWAL(); }
     );
   }
 
@@ -32,6 +32,10 @@ export class AltaComponent implements OnInit {
       text: 'Alta exitosamente',
       icon: 'success',
       confirmButtonText: 'Continuar!'
+    }).then((result) =>{
+      if(result.isConfirmed){
+        this._router.navigate(['/main']);
+      }
     });
   }
 

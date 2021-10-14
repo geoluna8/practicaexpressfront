@@ -9,6 +9,7 @@ import {
 } from '@angular/common/http';
 import { observable, Observable, Observer } from 'rxjs';
 import { LoaderService } from '../services/loader.service';
+import Swal from 'sweetalert2';
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
@@ -41,7 +42,8 @@ export class LoaderInterceptor implements HttpInterceptor {
             }
           },
           err => {
-            alert('error' + err);
+            //alert('error' + err);
+            this.showSwal();
             this.removeRequest(req);
             observer.error(err);
           },
@@ -56,4 +58,15 @@ export class LoaderInterceptor implements HttpInterceptor {
       };
     });
   }
+
+  private showSwal(): void{
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Error en la operacion!',
+      footer: '<a href="">Why do I have this issue?</a>'
+    });
+  }
+
+
 }

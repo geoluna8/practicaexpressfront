@@ -17,7 +17,7 @@
             <td>{{ item.lastName }}</td>
             <td>{{ item.age }} </td>
             <td><button class="btn btn-primary" (click)="goToUpdate(item._id)">Editar</button></td>
-            <td><button class="btn btn-danger" (click)="deleteOne(item._id)">Eliminar</button></td>
+            <td><button class="btn btn-danger" (click)="askToDelete(item._id)">Eliminar</button></td>
         </tr>
         </tbody>
     </table>

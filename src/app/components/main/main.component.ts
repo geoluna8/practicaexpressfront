@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PracticaService } from '../../services/practica.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-main',
@@ -25,13 +26,35 @@ export class MainComponent implements OnInit {
     this._router.navigate(['/actualizar'], {queryParams: {id: _id}});
   }
 
-  public deleteOne(id: string): void{
+  private deleteOne(id: string): void{
     //let persona: any = {_id: id} 
     this._service.deleteOne(id).subscribe(
       (data: any) => { console.log(data); },
       (error: any) => { console.log(error); },
-      ()=> { console.log("registro borrado"); this.getData(); }
+      ()=> { console.log("registro borrado"); this.getData(); 
+        Swal.fire(
+          'Eliminado!',
+          'El registro ha sido borrado.',
+          'success'
+        ); 
+      }
     );
+  }
+
+  public askToDelete(id: string): void {
+    Swal.fire({
+      title: 'Estas seguro de borrar este registro?',
+      text: "No podras deshacer esta acción!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteOne(id);
+      }
+    })
   }
 
   ngOnInit(): void {
